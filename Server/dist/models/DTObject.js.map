@@ -1,0 +1,1 @@
+{"version":3,"file":"DTObject.js","sourceRoot":"","sources":["../../models/DTObject.ts"],"names":[],"mappings":";;AAAA,iDAA8C;AAKjC,QAAA,cAAc,GAAG,IAAI,mBAAQ,CAAC,MAAM,CAAY,EAE5D,EACD;IACI,MAAM,EAAE,KAAK;CAChB,CAAC,CAAC;AACH,MAAM,QAAQ,GAAG,mBAAQ,CAAC,KAAK,CAAY,UAAU,EAAE,sBAAc,CAAC,CAAC;AACvE,kBAAe,QAAQ,CAAC"}

@@ -1,0 +1,42 @@
+<h1>{{title}}</h1>
+
+
+<form id="mform">
+  <select id="type" class='select-option' #mySelect [(ngModel)]="json.type" name="type"
+    (change)="checkType(mySelect.value)" required>
+    <option selected="true" disabled="disabled">Input Type</option>
+    <option value="textbox">TextField</option>
+    <option value="file">File</option>
+    <option value="dropdown">DropDown</option>
+    <option value="radio">Radio</option>
+    <option value="checkbox">Checkbox</option>
+  </select>
+  <input type="text" [(ngModel)]="json.name" name="name" id="name" required placeholder="Input Name" required>
+  <input type="text" [(ngModel)]="json.label" name="label" id="label" required placeholder="Input Label" required>
+  <input type="text" [(ngModel)]="json.value" name="value" id="value" required placeholder="Default Value" required>
+  <br> <br>
+
+  <div id="optionDiv" style="display: none;">
+    <input type="text" [(ngModel)]="option.key" name="optKey" id="optKey" required placeholder="Key Value" required>
+    <input type="text" [(ngModel)]="option.label" name="optLabel" id="optLabel" required placeholder="Option Label"
+      required>
+    <button (click)="addOption(json,option)">Add Option</button> <br> <br>
+  </div>
+  <button (click)="addJson(json,option)">Add Field Object</button> <br> <br>
+
+  <textarea rows="4" cols="50">{{jsonArray|json}}</textarea> <br>
+  <button (click)="onSubmit()">Submit Config Json</button> <br>
+</form>
+
+
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input type="text" name="json" class="form-control" id="json" required formControlName="json" name="json"
+    placeholder="Add Json Object Here..">
+
+  <br>
+  <input type="submit" [disabled]="!myForm.valid" value="Submit">
+</form> -->
+
+<app-formbuilder [obj2]="obj2" [fields]="fields"></app-formbuilder>
+
+<router-outlet></router-outlet>

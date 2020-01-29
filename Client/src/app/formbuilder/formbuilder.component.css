@@ -1,0 +1,17 @@
+table, td, th {
+    border: 1px solid black;
+  }
+  
+table{
+  margin-top: 50px;
+  }
+
+input {
+    width: 20%;
+    margin: 2px;
+  }
+
+select{
+    width: 20%;
+    margin: 2px;
+  }

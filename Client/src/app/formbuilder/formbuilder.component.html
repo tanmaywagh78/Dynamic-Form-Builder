@@ -1,0 +1,60 @@
+<p>formbuilder works!</p>
+
+<form id="myForm2" (ngSubmit)="onSubmit()" method="POST">
+  <div *ngFor="let field of fields">
+    <div [ngSwitch]="obj2[field].type">
+
+      <div *ngSwitchCase="'textbox'">
+        {{obj2[field].label}}:
+        <input [id]="field" [(ngModel)]="sample[field]" [name]="field" type="text" [placeholder]="obj2[field].label"
+          [value]="obj2[field].value" required>
+      </div>
+
+      <div *ngSwitchCase="'file'">
+        {{obj2[field].label}}:
+        <input [id]="field" [(ngModel)]="sample[field]" [name]="field" type="file" required>
+      </div>
+
+      <div *ngSwitchCase="'dropdown'">
+        Choose{{obj2[field].label}}:
+        <select [id]="field" [(ngModel)]="sample[field]" [name]="field" required>
+          <option selected="true" disabled="disabled">Choose {{obj2[field].label}}</option>
+          <option *ngFor="let opt of obj2[field].options" [value]="opt.key">{{opt.label}}</option>
+        </select>
+      </div>
+
+      <div *ngSwitchCase="'radio'" [id]="field">
+        {{obj2[field].label}}:
+        <div *ngFor="let opt of obj2[field].options">
+          <input type="radio" [(ngModel)]="sample[field]" [name]="field" [value]="opt.key">{{opt.label}}<br>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'checkbox'" [id]="field">
+        {{obj2[field].label}}:
+        <div *ngFor="let opt of obj2[field].options">
+          <input type="checkbox" [(ngModel)]="sample[opt.label]" [name]="opt.label" [value]="opt.key">{{opt.label}}<br>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+{{sample|json}}
+<!-- {{DTObjects|json}}
+{{dtofields}} -->
+
+<table>
+  <tr>
+    <th *ngFor="let field of dtofields">{{field}}</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let d of DTObjects">
+    <td *ngFor="let field of dtofields">{{d[field]}}</td>
+    <td><button (click)="editSport(d)">Edit</button></td>
+  </tr>
+</table>
