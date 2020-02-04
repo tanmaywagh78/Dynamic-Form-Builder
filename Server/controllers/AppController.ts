@@ -36,9 +36,9 @@ class AppController {
     getAll(req, res, next) {
         this._model.find((err: any, objects: any) => {
             if (err) {
-                res.status(400).json({data:err.message, msg:"Failed to fetch data."});
+                res.send(err);
             } else {
-                res.status(201).json({data:objects, msg:"Data fetched sucessfully."});
+                res.send(objects);
             }
         });
 
@@ -47,9 +47,9 @@ class AppController {
     getById(req, res, next) {
         this._model.findById(req.params.id, (err: any, object: any) => {
             if (err) {
-                res.status(400).json({data:err.message, msg:"Failed to fetch data."});
+                res.send(err);
             } else {
-                res.status(201).json({data:object, msg:"Data fetched sucessfully."});
+                res.send(object);
             }
         });
     }
